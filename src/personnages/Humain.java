@@ -1,9 +1,9 @@
 package personnages;
 
 public class Humain {
-	private String nom;
-	private String favBoisson;
-	private int argent;
+	protected String nom;
+	protected String favBoisson;
+	protected int argent;
 	public String getNom() {
 		return nom;
 	}
@@ -27,17 +27,17 @@ public class Humain {
 	public void acheter(String bien, int prix) {
 		if (prix <= argent) {
 			parler("J'ai "+argent+" sous en poche. Je vais pouvoir m'offrir "+bien+" à "+prix+" sous");
-			argent -= prix;
+			perdreArgent(prix);
 		} else {
 			parler("Je n'ai plus que "+argent+" sous en poche. Je ne peux même pas m'offrir "+bien+" à "+prix+" sous");
 		}
 
 	}
-	private void gagnerArgent(int gain) {
+	protected void gagnerArgent(int gain) {
 		argent += gain;
 
 	}
-	private void perdreArgent(int perte) {
+	protected void perdreArgent(int perte) {
 		argent -= perte;
 	}
 	public void parler(String texte) {
