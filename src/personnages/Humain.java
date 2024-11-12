@@ -72,13 +72,13 @@ public class Humain {
 		memoriser(autreHumain);
 	}
 	public void listerConnaissance() {
-		String texte = "";
+		StringBuilder texte = new StringBuilder();
 		for (int i = 0; i<nbConnaissance; i++) {
-			texte += memoire[i].getNom();
+			texte.append(memoire[i].getNom());
 			if (i < nbConnaissance-1) {
-				texte += ", ";
+				texte.append(", ");
 			}
 		}
-		parler("Je connais beaucoup de monde dont: "+texte);
+		parler("Je connais beaucoup de monde dont: "+texte.toString());
 	}
 }
